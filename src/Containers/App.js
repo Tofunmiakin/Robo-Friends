@@ -5,10 +5,12 @@
 // filteredRobots returns the robots that have been searched in the searchfield
 
 import React, { Component } from 'react';
-import CardList from '../Components/CardList';
-import SearchBox from '../Components/SearchBox';
+import CardList from '../Components/Card/CardList';
+import SearchBox from '../Components/Search/SearchBox';
 import Scroll from '../Components/Scroll';
 import './App.css'
+import SignIn from '../SignIn/SignIn';
+// import SignIn from '../SignIn/SignIn';
 
 
 class App extends Component{
@@ -16,7 +18,8 @@ class App extends Component{
 		super()
 		this.state ={
 			robots : [],
-			searchfield: ''
+			searchfield: '',
+			route: 'SignIn'
 		}
 	}
 	
@@ -29,22 +32,29 @@ class App extends Component{
 	onSearchChange = (event) =>{
 		this.setState({searchfield: event.target.value});
 	}
+
+	onRouteChange = () =>{
+		this.setState({route : 'home'})
+	}
      
 	render(){
-		const {robots, searchfield} = this.state;
+		const {robots, searchfield, route} = this.state;
 		const filteredRobots = robots.filter(robot =>{
 			return robot.name.toLowerCase().includes(searchfield.toLowerCase())}
 		);
-		return !robots.length ?
-		<h1>Loading</h1> :
-		(
-			<div className = 'container'>
-				<h1 className= 'title' >RoboFriends</h1>
-				<SearchBox searchChange = {this.onSearchChange} />
-				<Scroll>
-					<CardList robots = {filteredRobots}/>
-				</Scroll>               
-			</div>				
+		return (
+			<div>
+				{ route === 'SignIn' 
+					? <SignIn onRouteChange={this.onRouteChange}/>
+					: <div className = 'container'>
+							<h1 className= 'title' >RoboFriends</h1>
+							<SearchBox searchChange = {this.onSearchChange} />
+							<Scroll>
+								<CardList robots = {filteredRobots}/>
+							</Scroll>               
+						</div>	
+				}		
+			</div>
 		);
 		}
 	}
