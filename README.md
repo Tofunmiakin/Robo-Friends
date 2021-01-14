@@ -12,4 +12,4 @@ Check out the backend [here](https://github.com/Tofunmiakin/Robo-Friends-Backend
 ### What i'm working on (and may or may not abandon)
 * A sign in and registration page
 * A database to store the users
->>>>>>> 1b94d4a500f19e0d5efcb19b34bfea5699378cd4
+
