@@ -1,3 +1,6 @@
+// This was made so that only the cardlist body will be scrollable
+// The navigation and search bar remain stagnant
+
 import React from 'react';
 import {RemoveScroll} from 'react-remove-scroll';
 

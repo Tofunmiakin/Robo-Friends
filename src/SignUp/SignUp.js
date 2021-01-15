@@ -9,15 +9,15 @@ const SignIn = ({onRouteChange}) => {
           <fieldset >
             <h1>Sign Up</h1>
             <div>
-              <label for="name">Full Name</label>
+              <label htmlFor="name">Full Name</label>
               <input type="text" name="name"  id="name" />
             </div>
             <div>
-              <label for="email-address">Email</label>
+              <label htmlFor="email-address">Email</label>
               <input type="email" name="email-address"  id="email-address" />
             </div>
             <div>
-              <label for="password">Password</label>
+              <label htmlFor="password">Password</label>
               <input type="password" name="password"  id="password" />
             </div>
           </fieldset>

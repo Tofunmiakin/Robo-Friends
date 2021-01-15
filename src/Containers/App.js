@@ -3,6 +3,7 @@
 // I'm commenting this wayy after creating this so i don't really get it
 // As long as it works though
 // filteredRobots returns the robots that have been searched in the searchfield
+// Defined the routing on the site and condition whether one is signed in or not
 
 import React, { Component } from 'react';
 import CardList from '../Components/Card/CardList';
