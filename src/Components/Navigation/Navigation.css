@@ -1,0 +1,16 @@
+a{
+  display: flex;
+  justify-content: flex-end; 
+  margin-right: 10px;
+  margin-top: 2%;
+  color: #0ccac4;
+}
+
+a:hover{
+  color: purple;
+  cursor: pointer;
+}
+
+a:active{
+  color: black;
+}

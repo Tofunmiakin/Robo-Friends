@@ -1,5 +1,5 @@
 .search{
-  padding: 2%;
+  padding: .5%;
 }
 
 .search-bar{
@@ -9,4 +9,5 @@
   border-color: lightgreen;
   background: lightblue;
   font-size: 1rem;
+  color: black;
 }

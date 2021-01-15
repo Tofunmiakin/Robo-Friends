@@ -10,7 +10,8 @@ import SearchBox from '../Components/Search/SearchBox';
 import Scroll from '../Components/Scroll';
 import './App.css'
 import SignIn from '../SignIn/SignIn';
-// import SignIn from '../SignIn/SignIn';
+import SignUp from '../SignUp/SignUp';
+import Navigation from '../Components/Navigation/Navigation';
 
 
 class App extends Component{
@@ -19,7 +20,8 @@ class App extends Component{
 		this.state ={
 			robots : [],
 			searchfield: '',
-			route: 'SignIn'
+			route: 'SignIn',
+			isSignedIn : false
 		}
 	}
 	
@@ -33,26 +35,44 @@ class App extends Component{
 		this.setState({searchfield: event.target.value});
 	}
 
-	onRouteChange = () =>{
-		this.setState({route : 'home'})
+	onRouteChange = (route) =>{
+		if (route === 'SignIn'){
+			this.setState({isSignedIn: false})
+		} else if (route === 'home'){
+			this.setState({isSignedIn: true})
+		} 
+		this.setState({route : route});
 	}
      
 	render(){
-		const {robots, searchfield, route} = this.state;
+		const {robots, searchfield, route, isSignedIn} = this.state;
 		const filteredRobots = robots.filter(robot =>{
 			return robot.name.toLowerCase().includes(searchfield.toLowerCase())}
 		);
 		return (
 			<div>
-				{ route === 'SignIn' 
-					? <SignIn onRouteChange={this.onRouteChange}/>
-					: <div className = 'container'>
-							<h1 className= 'title' >RoboFriends</h1>
+				{ route === 'home' 
+					?  <div className = 'container'>
+							<Navigation
+							 isSignedIn={isSignedIn}
+							 onRouteChange={this.onRouteChange}
+							/>
 							<SearchBox searchChange = {this.onSearchChange} />
 							<Scroll>
 								<CardList robots = {filteredRobots}/>
 							</Scroll>               
 						</div>	
+					: (
+							route === 'SignIn'
+							?<div>
+								<Navigation onRouteChange={this.onRouteChange}/>
+								<SignIn onRouteChange={this.onRouteChange}/>
+							 </div>
+							:<div>
+								<Navigation onRouteChange={this.onRouteChange}/>
+								<SignUp onRouteChange={this.onRouteChange}/>
+							 </div>
+						)
 				}		
 			</div>
 		);

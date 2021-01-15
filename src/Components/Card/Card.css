@@ -16,3 +16,7 @@
 .robot-card:active{
   transform: translateY(4%);
 }
+
+p{
+  text-align: center;
+}

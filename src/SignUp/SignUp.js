@@ -1,5 +1,5 @@
 import React from 'react';
-import './SignIn.css';
+import './SignUp.css';
 
 const SignIn = ({onRouteChange}) => {
   return(
@@ -7,7 +7,11 @@ const SignIn = ({onRouteChange}) => {
       <main className="content">
         <form>
           <fieldset >
-            <h1 className="Signin">Sign In</h1>
+            <h1>Sign Up</h1>
+            <div>
+              <label for="name">Full Name</label>
+              <input type="text" name="name"  id="name" />
+            </div>
             <div>
               <label for="email-address">Email</label>
               <input type="email" name="email-address"  id="email-address" />
@@ -21,12 +25,16 @@ const SignIn = ({onRouteChange}) => {
             <input 
               className="submit" 
               type="submit" 
-              value="Sign in"
+              value="Sign Up"
               onClick={() => onRouteChange('home')}
             />
           </div>
         </form>
       </main>
+      <p 
+      className="signin"
+      onClick={() => onRouteChange('SignIn')}
+      > Sign In </p>
     </div>
   );
 }
