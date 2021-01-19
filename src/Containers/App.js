@@ -22,8 +22,23 @@ class App extends Component{
 			robots : [],
 			searchfield: '',
 			route: 'SignIn',
-			isSignedIn : false
+			isSignedIn : false,
+			user: {
+				id: '',
+				name: '',
+				email: '',
+				joined:''
+			}
 		}
+	}
+
+	loadUser = (data) =>{
+		this.setState({user:{
+			id: data.id,
+			name: data.name,
+			email: data.email,
+			joined: data.joined
+		}})
 	}
 	
 	componentDidMount() { 
@@ -71,7 +86,7 @@ class App extends Component{
 							 </div>
 							:<div>
 								<Navigation onRouteChange={this.onRouteChange}/>
-								<SignUp onRouteChange={this.onRouteChange}/>
+								<SignUp loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
 							 </div>
 						)
 				}		
