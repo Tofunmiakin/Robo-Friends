@@ -23,7 +23,8 @@ class SignUp extends React.Component{
     this.setState({password: event.target.value})
   }
 
-  onSubmitSignIn = () => {
+  onSubmitSignIn = (event) => {
+    event.preventDefault();
     fetch('http://localhost:5000/signup', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},

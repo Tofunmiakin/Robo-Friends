@@ -1,6 +1,9 @@
 import React from 'react';
 import './SignIn.css';
 
+// const proxyurl = "https://cors-anywhere.herokuapp.com/";
+const url = "http://localhost:5000/signin";
+
 class SignIn extends React.Component{
   constructor(props){
     super(props);
@@ -18,8 +21,10 @@ class SignIn extends React.Component{
     this.setState({SignInPassword: event.target.value})
   }
 
-  onSubmitSignIn = () => {
-    fetch('http://localhost:5000/signin', {
+
+  onSubmitSignIn = (event) => {
+    event.preventDefault();
+    fetch(url, {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
@@ -33,6 +38,9 @@ class SignIn extends React.Component{
           this.props.onRouteChange('home');
         }
       })
+      // .catch(err =>{
+      //   console.log(err);
+      // })
     
   }
 
