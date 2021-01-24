@@ -1,10 +1,3 @@
-// Insert the users object into the robots array
-// assigning them state because the users change when something is searched
-// I'm commenting this wayy after creating this so i don't really get it
-// As long as it works though
-// filteredRobots returns the robots that have been searched in the searchfield
-// Defined the routing on the site and condition whether one is signed in or not
-
 import React, { Component } from 'react';
 import CardList from '../Components/Card/CardList';
 import SearchBox from '../Components/Search/SearchBox';
@@ -14,22 +7,23 @@ import SignIn from '../SignIn/SignIn';
 import SignUp from '../SignUp/SignUp';
 import Navigation from '../Components/Navigation/Navigation';
 
+const initialState ={
+		robots : [],
+		searchfield: '',
+		route: 'SignIn',
+		isSignedIn : false,
+		user: {
+			id: '',
+			name: '',
+			email: '',
+			joined:''
+		}
+}
 
 class App extends Component{
   constructor() {
 		super()
-		this.state ={
-			robots : [],
-			searchfield: '',
-			route: 'SignIn',
-			isSignedIn : false,
-			user: {
-				id: '',
-				name: '',
-				email: '',
-				joined:''
-			}
-		}
+		this.state = initialState;	
 	}
 
 	loadUser = (data) =>{
@@ -45,6 +39,7 @@ class App extends Component{
 		fetch('http://localhost:5000')
 			.then(response => response.json())
 			.then(users => {this.setState({robots: users})})
+				.catch(console.log)
 	}
 
 	onSearchChange = (event) =>{
@@ -53,10 +48,10 @@ class App extends Component{
 
 	onRouteChange = (route) =>{
 		if (route === 'SignIn'){
-			this.setState({isSignedIn: false})
+			this.setState({initialState})
 		} else if (route === 'home'){
 			this.setState({isSignedIn: true})
-		} 
+		}
 		this.setState({route : route});
 	}
      
@@ -75,14 +70,14 @@ class App extends Component{
 							/>
 							<SearchBox searchChange = {this.onSearchChange} />
 							<Scroll>
-								<CardList robots = {filteredRobots}/>
+								<CardList robotList = {filteredRobots}/>
 							</Scroll>               
 						</div>	
 					: (
 							route === 'SignIn'
 							?<div>
 								<Navigation onRouteChange={this.onRouteChange}/>
-								<SignIn onRouteChange={this.onRouteChange}/>
+								<SignIn loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
 							 </div>
 							:<div>
 								<Navigation onRouteChange={this.onRouteChange}/>

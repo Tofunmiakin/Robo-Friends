@@ -1,4 +1,5 @@
 // Card display of the users
+// fetches the robot picture corresponding to the id from robohash
 
 import React from 'react';
 import './Card.css';

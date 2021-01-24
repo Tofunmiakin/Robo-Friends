@@ -1,3 +1,5 @@
+// This is the sign up form, registers a user and pushed the info to the database
+
 import React from 'react';
 import './SignUp.css';
 
@@ -41,7 +43,6 @@ class SignUp extends React.Component{
           this.props.onRouteChange('home');
         }
       })
-    
   }
 
   render(){
@@ -97,7 +98,6 @@ class SignUp extends React.Component{
       </div>
     );
   }
-  
 }
 
 export default SignUp;

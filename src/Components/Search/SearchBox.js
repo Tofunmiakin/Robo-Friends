@@ -1,3 +1,6 @@
+// searches by name only
+// When the searchbar changes, the robotlist changes accordingly
+
 import React from 'react';
 import './SearchBox.css'
 

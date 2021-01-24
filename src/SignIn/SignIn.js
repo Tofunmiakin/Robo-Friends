@@ -1,7 +1,8 @@
+// This renders the sign in form and handles authentication for signing in
+
 import React from 'react';
 import './SignIn.css';
 
-// const proxyurl = "https://cors-anywhere.herokuapp.com/";
 const url = "http://localhost:5000/signin";
 
 class SignIn extends React.Component{
@@ -21,7 +22,6 @@ class SignIn extends React.Component{
     this.setState({SignInPassword: event.target.value})
   }
 
-
   onSubmitSignIn = (event) => {
     event.preventDefault();
     fetch(url, {
@@ -33,14 +33,13 @@ class SignIn extends React.Component{
       })
     })
       .then(response => response.json())
-      .then(data => {
-        if (data === 'success') {
+      .then(user => {
+        if (user.id) {
+          this.props.loadUser(user);
           this.props.onRouteChange('home');
         }
       })
-      // .catch(err =>{
-      //   console.log(err);
-      // })
+        .catch(console.log)
     
   }
 
