@@ -40,7 +40,8 @@ class App extends Component{
 			.then(response => response.json())
 			.then(users => {this.setState({robots: users})})
 				.catch(console.log)
-	}
+;	}
+
 
 	onSearchChange = (event) =>{
 		this.setState({searchfield: event.target.value});
