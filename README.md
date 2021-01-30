@@ -5,11 +5,6 @@ This is my first web app, created with React.js. I will be adding "special effec
 Check out the backend [here](https://github.com/Tofunmiakin/Robo-Friends-Backend)
 
 ### What the app does (for now)
-* Fetches users (robo friends) from a [Some random json file on the internet](https://jsonplaceholder.typicode.com/users) and assigns it a unique image gotten from [Robo Hash](https://robohash.org/)
-* Searches for users 
-
-
-### What i'm working on (and may or may not abandon)
-* A sign in and registration page
-* A database to store the users
-
+* A functional database (postgreSQL) for fetching users on sign in and storing user information
+* Updates the user list based on what's typed in the search bar
+* Assigns a random robot picture to a user by their "id" from [robo hash](https://robohash.org/)
