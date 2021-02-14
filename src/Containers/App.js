@@ -36,7 +36,7 @@ class App extends Component{
 	}
 	
 	componentDidMount() { 
-		fetch('http://localhost:5000')
+		fetch('https://robofriends970.herokuapp.com')
 			.then(response => response.json())
 			.then(users => {this.setState({robots: users})})
 				.catch(console.log)
