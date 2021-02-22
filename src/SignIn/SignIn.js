@@ -3,7 +3,7 @@
 import React from 'react';
 import './SignIn.css';
 
-const url = "https://robofriends970.herokuapp.com/signin";
+const url = "https://robofriends-backend970.herokuapp.com/signin";
 
 class SignIn extends React.Component{
   constructor(props){
