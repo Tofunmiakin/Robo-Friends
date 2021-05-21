@@ -2,9 +2,6 @@
 
 This is my first web app, created with React.js. I will be adding things to it as I continue to learn
 
-Check out the backend [here](https://github.com/Tofunmiakin/Robo-Friends-Backend)
-ps: info on the backend is written here not in the backend repo
-
 ### What the app does / has (for now)
 * A functional database (postgreSQL) for fetching users on sign in and storing user information
 * Updates the user list based on what's typed in the search bar

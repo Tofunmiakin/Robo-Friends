@@ -1,35 +1,39 @@
-// This renders the sign in form and handles authentication for signing in
+// This is the sign up form, registers a user and pushed the info to the database
 
 import React from 'react';
-import './SignIn.css';
+import './SignUp.css';
 
-const url = "http://localhost:3001/signin";
-
-class SignIn extends React.Component{
+class SignUp extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      SignInEmail: '',
-      SignInPassword: ''
+      email: '',
+      password: '',
+      name: ''
     }
   }
 
+  onNameChange = (event) => {
+    this.setState({name: event.target.value})
+  }
+
   onEmailChange = (event) => {
-    this.setState({SignInEmail: event.target.value})
+    this.setState({email: event.target.value})
   }
 
   onPasswordChange = (event) => {
-    this.setState({SignInPassword: event.target.value})
+    this.setState({password: event.target.value})
   }
 
   onSubmitSignIn = (event) => {
     event.preventDefault();
-    fetch(url, {
+    fetch('https://robofriends-backend970.herokuapp.com/signup', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
-        email: this.state.SignInEmail,
-        password: this.state.SignInPassword
+        email: this.state.email,
+        password: this.state.password,
+        name: this.state.name
       })
     })
       .then(response => response.json())
@@ -39,17 +43,25 @@ class SignIn extends React.Component{
           this.props.onRouteChange('home');
         }
       })
-        .catch(console.log)
-    
   }
 
   render(){
+    const {onRouteChange} =this.props;
     return(
       <div className="body">
         <main className="content">
           <form>
-            <fieldset>
-              <h1 className="Signin">Sign In</h1>
+            <fieldset >
+              <h1>Sign Up</h1>
+              <div>
+                <label htmlFor="name">Full Name</label>
+                <input 
+                  type="text" 
+                  name="name"  
+                  id="name" 
+                  onChange={this.onNameChange}
+                />
+              </div>
               <div>
                 <label htmlFor="email-address">Email</label>
                 <input 
@@ -73,15 +85,19 @@ class SignIn extends React.Component{
               <input 
                 className="submit" 
                 type="submit" 
-                value="Sign in"
+                value="Sign Up"
                 onClick={this.onSubmitSignIn}
               />
             </div>
           </form>
         </main>
+        <p 
+        className="signin"
+        onClick={() => onRouteChange('SignIn')}
+        > Sign In </p>
       </div>
     );
   }
 }
 
-export default SignIn;
+export default SignUp;
