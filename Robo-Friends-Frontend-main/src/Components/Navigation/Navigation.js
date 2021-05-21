@@ -9,13 +9,13 @@ const Navigation = ({onRouteChange, isSignedIn}) =>{
 		return(
 			<nav>
 				<h1 className= 'title'>RoboFriends</h1>
-				<a href='##' onClick={() => onRouteChange('SignIn')}>Sign Out</a>
+				<a href='#/signin' onClick={() => onRouteChange('SignIn')}>Sign Out</a>
 			</nav>
 		);
 	} else{
 		return(
 			<nav>
-				<a href="##" onClick={() => onRouteChange('SignUp')}>Sign up</a>
+				<a href="#/signup" onClick={() => onRouteChange('SignUp')}>Sign up</a>
 			</nav>
 		);
 	}
