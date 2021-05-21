@@ -1,0 +1,22 @@
+.robot-card{
+  background: lightgreen;
+  display: inline-block;
+  border-radius: 3%;
+  padding: 3%;
+  margin: 2%;
+  border-width: 2%;
+  cursor: pointer;
+  transition: transform .3s;
+}
+
+.robot-card:hover{
+  transform: scale(1.1);
+}
+
+.robot-card:active{
+  transform: translateY(4%);
+}
+
+p{
+  text-align: center;
+}
