@@ -27,7 +27,7 @@ class SignUp extends React.Component{
 
   onSubmitSignIn = (event) => {
     event.preventDefault();
-    fetch('https://robofriends-backend970.herokuapp.com/signup', {
+    fetch('http://localhost:3001/signup', {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({

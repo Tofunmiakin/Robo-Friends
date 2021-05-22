@@ -36,7 +36,7 @@ class App extends Component{
 	}
 	
 	componentDidMount() { 
-		fetch('https://robofriends-backend970.herokuapp.com')
+		fetch('http://localhost:3001')
 			.then(response => response.json())
 			.then(users => {this.setState({robots: users})})
 				.catch(console.log)
@@ -63,7 +63,7 @@ class App extends Component{
 		);
 		return (
 			<div>
-				{ route === 'home' 
+				{route === 'home' 
 					?  <div className = 'container'>
 							<Navigation
 							 isSignedIn={isSignedIn}
@@ -76,12 +76,17 @@ class App extends Component{
 						</div>	
 					: (
 							route === 'SignIn'
-							?<div>
-								<Navigation onRouteChange={this.onRouteChange}/>
+							?
+							<div>
+								<Navigation 
+									onRouteChange={this.onRouteChange}
+								/>
 								<SignIn loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
-							 </div>
+							</div>
 							:<div>
-								<Navigation onRouteChange={this.onRouteChange}/>
+								<Navigation
+									isSignedIn={false} 
+									onRouteChange={this.onRouteChange}/>
 								<SignUp loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
 							 </div>
 						)
