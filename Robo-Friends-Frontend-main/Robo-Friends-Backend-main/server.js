@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const knex = require('knex');
+const path = require('path');
 
 const signup = require('./controllers/signup');
 const signin = require('./controllers/signin');
@@ -25,6 +26,8 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(cors());
+
+app.use(express.static("./Robo-Friends-Frontend-main/public"));
 
 app.get('/', (req, res) => {
   db.select('*').from('users')
