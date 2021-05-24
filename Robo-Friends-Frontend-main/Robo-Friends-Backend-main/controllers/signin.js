@@ -4,8 +4,8 @@
 // NODE_TLS_REJECT_UNAUTHORIZED='0';
 
 const handleSignin = (req, res, db, bcrypt) => {
-  const {email, password} =req.body;
-  if (!email || !password){
+  const { email, password } = req.body;
+  if (!email || !password) {
     return res.status(400).json('incorrect form submission');
   }
   db.select('email', 'hash')
@@ -13,14 +13,14 @@ const handleSignin = (req, res, db, bcrypt) => {
     .where('email', '=', email)
     .then(data => {
       const isValid = bcrypt.compareSync(password, data[0].hash);
-      if (isValid){
+      if (isValid) {
         return db.select('*').from('users')
           .where('email', '=', email)
-          .then(user =>{
+          .then(user => {
             res.json(user[0])
           })
           .catch(err => res.status(400).json('unable to get user'))
-      } else{
+      } else {
         res.status(400).json('wrong credentials')
       }
     })
@@ -28,5 +28,5 @@ const handleSignin = (req, res, db, bcrypt) => {
 }
 
 module.exports = {
-  handleSignin : handleSignin
+  handleSignin: handleSignin
 };

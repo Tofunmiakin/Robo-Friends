@@ -1,16 +1,16 @@
-a{
+a {
   display: flex;
-  justify-content: flex-end; 
+  justify-content: flex-end;
   margin-right: 10px;
   margin-top: 2%;
   color: #0ccac4;
 }
 
-a:hover{
+a:hover {
   color: purple;
   cursor: pointer;
 }
 
-a:active{
+a:active {
   color: black;
 }

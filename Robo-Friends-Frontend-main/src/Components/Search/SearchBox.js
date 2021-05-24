@@ -4,14 +4,14 @@
 import React from 'react';
 import './SearchBox.css'
 
-const SearchBox = ({searchChange}) => {
+const SearchBox = ({ searchChange }) => {
 	return (
-		<div className= 'search'>
+		<div className='search'>
 			<input
-				className = 'search-bar'
-				type = 'search' 
+				className='search-bar'
+				type='search'
 				placeholder='search robots'
-				onChange = {searchChange}
+				onChange={searchChange}
 			/>
 		</div>
 	);

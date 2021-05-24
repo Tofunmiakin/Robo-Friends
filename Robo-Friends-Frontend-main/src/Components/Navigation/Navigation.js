@@ -4,16 +4,16 @@
 import React from 'react';
 import './Navigation.css';
 
-const Navigation = ({onRouteChange, isSignedIn}) =>{
-	if (isSignedIn){
-		return(
+const Navigation = ({ onRouteChange, isSignedIn }) => {
+	if (isSignedIn) {
+		return (
 			<nav>
-				<h1 className= 'title'>RoboFriends</h1>
+				<h1 className='title'>RoboFriends</h1>
 				<a href='signin' onClick={() => onRouteChange('SignIn')}>Sign Out</a>
 			</nav>
 		);
-	} else{
-		return(
+	} else {
+		return (
 			<nav>
 				<a href="#" onClick={() => onRouteChange('SignUp')}>Sign up</a>
 			</nav>
@@ -21,4 +21,4 @@ const Navigation = ({onRouteChange, isSignedIn}) =>{
 	}
 }
 
-export default Navigation;    
+export default Navigation;
