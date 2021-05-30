@@ -24,12 +24,19 @@ const db = knex({
   }
 });
 
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+// process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
 const app = express();
 
 app.use(bodyParser.json());
 app.use(cors());
+
+// app.get('^/$', (req, res) => {
+//   db.select('*').from('users')
+//     .then(all => {
+//       res.status(200).json(all);
+//     })
+// });
 
 app.use("^/$", (req, res, next) => {
   fs.readFile(path.resolve("../build/index.html"), "utf-8", (err, data) => {
@@ -46,14 +53,14 @@ app.use("^/$", (req, res, next) => {
   });
 });
 
-app.use(express.static(path.resolve(__dirname, '..', 'build')))
+app.use(express.static(path.resolve(__dirname, '..', 'build')));
 
-app.get('/', (req, res) => {
+app.get('/users', (req, res) => {
   db.select('*').from('users')
     .then(all => {
-      res.status(200).json(all)
+      res.status(200).json(all);
     })
-})
+});
 
 app.post('/signin', (req, res) => { signin.handleSignin(req, res, db, bcrypt) })
 

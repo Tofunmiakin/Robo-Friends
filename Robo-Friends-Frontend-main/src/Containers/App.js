@@ -38,7 +38,7 @@ class App extends Component {
 	}
 
 	componentDidMount() {
-		fetch('http://localhost:3001')
+		fetch('http://localhost:3001/users')
 			.then(response => response.json())
 			.then(users => { this.setState({ robots: users }) })
 			.catch(console.log)

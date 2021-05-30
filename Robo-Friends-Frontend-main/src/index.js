@@ -4,7 +4,7 @@ import './index.css';
 import App from './Containers/App'
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(
+ReactDOM.hydrate(
 	<App />
 	, document.getElementById('root')
 );
