@@ -53,14 +53,16 @@ app.use("^/$", (req, res, next) => {
   });
 });
 
-app.use(express.static(path.resolve(__dirname, '..', 'build')));
-
 app.get('/users', (req, res) => {
   db.select('*').from('users')
     .then(all => {
       res.status(200).json(all);
     })
 });
+
+app.use(express.static(path.resolve(__dirname, '..', 'build')));
+
+
 
 app.post('/signin', (req, res) => { signin.handleSignin(req, res, db, bcrypt) })
 

@@ -8,8 +8,8 @@ const Navigation = ({ onRouteChange, isSignedIn }) => {
 	if (isSignedIn) {
 		return (
 			<nav>
-				<h1 className='title'>RoboFriends</h1>
-				<a href='signin' onClick={() => onRouteChange('SignIn')}>Sign Out</a>
+				<h1 className='title'>RobosFriends</h1>
+				<a href='#' onClick={() => onRouteChange('SignIn')}>Sign Out</a>
 			</nav>
 		);
 	} else {
