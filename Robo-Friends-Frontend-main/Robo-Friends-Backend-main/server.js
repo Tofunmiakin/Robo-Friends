@@ -31,11 +31,12 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
+//This reads the index.html and replaces the root div with the content of our rendered application
 app.use("^/$", (req, res, next) => {
   fs.readFile(path.resolve("../build/index.html"), "utf-8", (err, data) => {
     if (err) {
       console.log(err);
-      return res.status(500).send("Some error happened");
+      return res.status(500).send("error reading index.html");
     }
     return res.send(
       data.replace(
@@ -46,6 +47,7 @@ app.use("^/$", (req, res, next) => {
   });
 });
 
+//Grabbing the users from the database and posting them in the specified route
 app.get('/users', (req, res) => {
   db.select('*').from('users')
     .then(all => {
@@ -53,6 +55,7 @@ app.get('/users', (req, res) => {
     })
 });
 
+//This also renders the other aesthetic files in the build folder
 app.use(express.static(path.resolve(__dirname, '..', 'build')));
 
 
