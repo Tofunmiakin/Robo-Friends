@@ -4,6 +4,7 @@ import './index.css';
 import App from './Containers/App'
 import * as serviceWorker from './serviceWorker';
 
+//Hydrate is used instead of render because it uses server side rendering now
 ReactDOM.hydrate(
 	<App />
 	, document.getElementById('root')

@@ -3,6 +3,7 @@
 import React from 'react';
 import Card from './Card';
 
+//Maps throught the robotlist(which will be the filtered robots) props and gives each user a card with their name email and picture (gotten with their id)
 const CardList = ({ robotList }) => {
 	return (
 		<div style={{ marginBottom: '100px' }} >

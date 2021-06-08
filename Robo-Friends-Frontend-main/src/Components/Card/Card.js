@@ -4,6 +4,7 @@
 import React from 'react';
 import './Card.css';
 
+//Displays a name, email, and picture (which is gotten from the id).
 const Card = ({ name, email, id }) => {
 	return (
 		<div className='robot-card'>

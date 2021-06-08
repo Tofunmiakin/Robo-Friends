@@ -4,6 +4,7 @@
 import React from 'react';
 import './SearchBox.css'
 
+//Onchange, the searchbox executes the searchChange prop
 const SearchBox = ({ searchChange }) => {
 	return (
 		<div className='search'>

@@ -31,13 +31,6 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-// app.get('^/$', (req, res) => {
-//   db.select('*').from('users')
-//     .then(all => {
-//       res.status(200).json(all);
-//     })
-// });
-
 app.use("^/$", (req, res, next) => {
   fs.readFile(path.resolve("../build/index.html"), "utf-8", (err, data) => {
     if (err) {

@@ -3,6 +3,7 @@
 import React from 'react';
 import './SignUp.css';
 
+// The sign up email and password are defined as state
 class SignUp extends React.Component {
   constructor(props) {
     super(props);
@@ -13,19 +14,24 @@ class SignUp extends React.Component {
     }
   }
 
+  //This grabs the value of the change in the name field
   onNameChange = (event) => {
     this.setState({ name: event.target.value })
   }
 
+  //This grabs the value of the change in the email field
   onEmailChange = (event) => {
     this.setState({ email: event.target.value })
   }
 
+  //This grabs the value of the change in the password field
   onPasswordChange = (event) => {
     this.setState({ password: event.target.value })
   }
 
-  onSubmitSignIn = (event) => {
+  //This sends the information typed in the registration screen to the backend to store in the database
+  //It then checks with the backend if the user has an id and signs it in
+  onSubmitSignUp = (event) => {
     event.preventDefault();
     fetch('http://localhost:3001/signup', {
       method: 'post',
@@ -86,7 +92,7 @@ class SignUp extends React.Component {
                 className="submit"
                 type="submit"
                 value="Sign Up"
-                onClick={this.onSubmitSignIn}
+                onClick={this.onSubmitSignUp}
               />
             </div>
           </form>
