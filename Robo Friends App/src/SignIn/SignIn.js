@@ -2,6 +2,7 @@
 
 import React from 'react';
 import './SignIn.css';
+import { Link } from 'react-router-dom';
 
 const url = "http://localhost:3001/signin";
 
@@ -84,6 +85,9 @@ class SignIn extends React.Component {
             </div>
           </form>
         </main>
+        <Link to='/SignUp'>
+          <p className="signin"> Sign Up </p>
+        </Link>
       </div>
     );
   }

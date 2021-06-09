@@ -3,22 +3,18 @@
 
 import React from 'react';
 import './Navigation.css';
+import { Link } from 'react-router-dom';
 
-const Navigation = ({ onRouteChange, isSignedIn }) => {
-	if (isSignedIn) {
-		return (
+const Navigation = () => {
+	return (
 			<nav>
-				<h1 className='title'>RobosFriends</h1>
-				<a href='#' onClick={() => onRouteChange('SignIn')}>Sign Out</a>
-			</nav>
-		);
-	} else {
-		return (
-			<nav>
-				<a href="#" onClick={() => onRouteChange('SignUp')}>Sign up</a>
-			</nav>
-		);
-	}
+				<h1 className='title'>RoboFriends</h1>
+				{/* <a href='#'>Sign Out</a> */}
+		</nav>
+	);
+
+
+
 }
 
 export default Navigation;

@@ -2,6 +2,7 @@
 
 import React from 'react';
 import './SignUp.css';
+import { Link } from 'react-router-dom';
 
 // The sign up email and password are defined as state
 class SignUp extends React.Component {
@@ -97,10 +98,9 @@ class SignUp extends React.Component {
             </div>
           </form>
         </main>
-        <p
-          className="signin"
-          onClick={() => onRouteChange('SignIn')}
-        > Sign In </p>
+        <Link to='/'>
+          <p className="signin"> Sign In </p>
+        </Link>
       </div>
     );
   }

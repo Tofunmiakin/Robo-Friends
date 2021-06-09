@@ -3,7 +3,7 @@
 
 // NODE_TLS_REJECT_UNAUTHORIZED='0';
 
-const handleSignup = (req, res, db, bcrypt) => {
+const handleSignup = (app, req, res, db, bcrypt) => {
   const { email, name, password } = req.body;
   if (!email || !name || !password) {
     return res.status(400).json('incorrect form submission');
@@ -32,8 +32,11 @@ const handleSignup = (req, res, db, bcrypt) => {
       .then(trx.commit)
       .catch(trx.rollback)
   })
-    .catch(err => res.status(400).json('unable to register'))
+    .catch(err => res.status(400).json('unable to register'));
+  
 }
+
+
 
 module.exports = {
   handleSignup: handleSignup

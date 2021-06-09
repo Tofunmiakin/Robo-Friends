@@ -1,4 +1,4 @@
-a {
+p {
   display: flex;
   justify-content: flex-end;
   margin-right: 10px;
@@ -6,11 +6,11 @@ a {
   color: #0ccac4;
 }
 
-a:hover {
+p:hover {
   color: purple;
   cursor: pointer;
 }
 
-a:active {
+p:active {
   color: black;
 }
