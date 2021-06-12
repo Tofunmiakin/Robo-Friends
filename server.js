@@ -11,16 +11,17 @@ const ReactDOMServer = require('react-dom/server');
 
 const signup = require('./controllers/signup');
 const signin = require('./controllers/signin');
+const connection = require('./connection')
 
 const db = knex({
   client: 'pg',
   connection: {
     // connectionString : process.env.DATABASE_URL,
     // ssl: true,
-    host: '127.0.0.1',
-    user: 'postgres',
-    password: 'p4ssw0rd',
-    database: 'robofriends'
+    host : connection.host,
+    user : connection.user,
+    password : connection.password,
+    database: connection.database  
   }
 });
 

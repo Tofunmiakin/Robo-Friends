@@ -7,9 +7,11 @@ import { Link } from 'react-router-dom';
 
 const Navigation = () => {
 	return (
-			<nav>
-				<h1 className='title'>RoboFriends</h1>
-				{/* <a href='#'>Sign Out</a> */}
+		<nav>
+			<h1 className='title'>RoboFriends</h1>
+			<Link to='/'>
+				<a href='#'>Sign Out</a>
+			</Link>
 		</nav>
 	);
 
